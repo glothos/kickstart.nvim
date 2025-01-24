@@ -2,28 +2,30 @@ return {
   {
     'quarto-dev/quarto-nvim',
     dev = false,
-    lspFeatures = {
-      languages = { 'python' },
-      chunks = 'all',
-      diagnostics = {
-        enabled = true,
-      },
-      completions = {
-        enabled = true,
-      },
-    },
-    codeRunner = {
-      enabled = true,
-      default_method = 'molten',
-      ft_runners = {
-        python = 'molten',
-      },
-    },
     dependencies = {
       'jmbuhr/otter.nvim',
     },
     ft = { 'quarto', 'markdown' },
     config = function()
+      require('quarto').setup {
+        lspFeatures = {
+          languages = { 'python' },
+          chunks = 'all',
+          diagnostics = {
+            enabled = true,
+          },
+          completions = {
+            enabled = true,
+          },
+        },
+        codeRunner = {
+          enabled = true,
+          default_method = 'molten',
+          ft_runners = {
+            python = 'molten',
+          },
+        },
+      }
       local runner = require 'quarto.runner'
       vim.keymap.set('n', '<leader>rc', runner.run_cell, { desc = 'run cell', silent = true })
       vim.keymap.set('n', '<leader>ra', runner.run_above, { desc = 'run cell and above', silent = true })

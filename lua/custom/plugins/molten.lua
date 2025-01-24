@@ -3,7 +3,6 @@ return {
     'benlubas/molten-nvim',
     dependencies = { '3rd/image.nvim' },
     build = ':UpdateRemotePlugins',
-    lazy = true,
     ft = { 'markdown', 'quarto' },
     init = function()
       vim.g.molten_image_provider = 'image.nvim'
@@ -13,9 +12,6 @@ return {
       vim.g.molten_virt_lines_off_by_1 = true
     end,
     config = function()
-      -- automatically import output chunks from a jupyter notebook
-      -- tries to find a kernel that matches the kernel in the jupyter notebook
-      -- falls back to a kernel that matches the name of the active venv (if any)
       local imb = function(e) -- init molten buffer
         vim.schedule(function()
           local kernels = vim.fn.MoltenAvailableKernels()
