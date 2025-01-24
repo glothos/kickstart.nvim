@@ -5,6 +5,9 @@ return {
     lspFeatures = {
       languages = { 'python' },
       chunks = 'all',
+      diagnostics = {
+        enabled = true,
+      },
       completions = {
         enabled = true,
       },
