@@ -58,6 +58,7 @@ return {
       vim.keymap.set('v', '<leader>rv', ':<C-u>MoltenEvaluateVisual<CR>gv', { silent = true, desc = 'evaluate visual selection' })
       vim.keymap.set('n', '<leader>oh', ':MoltenHideOutput<CR>', { desc = 'close output window', silent = true })
       vim.keymap.set('n', '<leader>md', ':MoltenDelete<CR>', { desc = 'delete Molten cell', silent = true })
+      vim.keymap.set('n', '<leader>rw', ':MoltenRestart<CR>', { desc = 'restart Molten kernel', silent = true })
 
       -- Provide a command to create a blank new Python notebook
       -- note: the metadata is needed for Jupytext to understand how to parse the notebook.
